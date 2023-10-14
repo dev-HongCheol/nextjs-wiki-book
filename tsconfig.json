@@ -21,7 +21,9 @@
     "paths": {
       // "@/*": ["./*"],
       "@/utils/*": ["./utils/*"],
-      "@/types/*": ["./types/*"]
+      "@/types/*": ["./types/*"],
+      "@components/*": ["./components/*"]
+      // "@/molecules/*": ["./components/molecules/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
