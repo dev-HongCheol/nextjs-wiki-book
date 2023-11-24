@@ -1,7 +1,7 @@
 import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import React, { InputHTMLAttributes, useCallback, useEffect, useRef, useState } from "react";
-import { Text } from "@/atoms/text";
+import { Text } from "@components/atoms";
 export type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, "defaultValue"> & {
   label?: string;
 };
@@ -32,7 +32,7 @@ const Checkbox = ({ id, label, onChange, checked, ...props }: CheckboxProps) => 
         type="checkbox"
         {...props}
       />
-      <div className="felx itmes-center">
+      <div className="flex items-center">
         {checked ?? isChecked ? (
           <button onClick={onClick}>
             <CheckBoxOutlinedIcon />
@@ -42,8 +42,9 @@ const Checkbox = ({ id, label, onChange, checked, ...props }: CheckboxProps) => 
             <CheckBoxOutlineBlankOutlinedIcon />
           </button>
         )}
+
         {label && label.length > 0 && (
-          <label htmlFor={id}>
+          <label htmlFor={id} onClick={onClick}>
             <Text variant="primary">{label}</Text>
           </label>
         )}
