@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import * as NextImage from "next/image";
 import React from "react";
 import "../app/globals.css";
+import "../components/molecules/dropdown/dropdown.css";
 
 const preview: Preview = {
   parameters: {

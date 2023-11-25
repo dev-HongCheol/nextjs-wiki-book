@@ -1,0 +1,28 @@
+.dropdown-root {
+  @apply relative h-[38px];
+}
+
+.dropdown-control {
+  @apply relative overflow-hidden bg-white rounded-[5px] border-[5px] outline-none py-[8px] pr-[52px] pl-[12px];
+}
+
+.dropdown-placehoder {
+  @apply text-[#757575] text-lg min-h-[20px] leading-[20px];
+}
+
+.dropdown-arrow {
+  @apply border-solid h-0 mt-[-ceil(2.5)] absolute right-[10px] top-[16px] w-0;
+  content: " ";
+}
+
+.dropdown-menu {
+  @apply bg-white box-border rounded-[5px] mt-[-1px] max-h-[200px] overflow-y-auto absolute top-full w-full z-50;
+  box-shadow:
+    0px 5px 5px -3px rgb(0 0 0 / 20%),
+    0px 8px 10px 1px rgb(0 0 0 / 10%),
+    0px 3px 14px 2px rgb(0 0 0 / 12%);
+}
+
+.dropdown-option {
+  @apply px-2 py-3 hover:bg-[#f9f9f9];
+}
