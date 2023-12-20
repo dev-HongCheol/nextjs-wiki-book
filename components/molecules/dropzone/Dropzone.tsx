@@ -1,5 +1,5 @@
-import { CloudUploadIcon } from "@components/atoms/IconButton/IconButton";
 import React, { ChangeEvent, DragEvent, useCallback, useEffect, useRef, useState } from "react";
+import { CloudUploadIcon } from "@components/atoms/IconButton/IconButton";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isDragEvt = (value: any): value is React.DragEvent => {
