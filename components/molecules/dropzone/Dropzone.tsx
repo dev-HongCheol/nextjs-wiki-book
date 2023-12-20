@@ -44,7 +44,7 @@ const Dropzone = ({
   value = [],
   name,
   acceptedFileTypes = ["image/jpeg", "image/png"],
-  hadError,
+  hadError = false,
   width = "100%",
   height = "100%",
 }: DropzoneProps) => {
@@ -65,6 +65,7 @@ const Dropzone = ({
 
   // 드래그 상태에서 마우스 포인터가 영역범위에 드롭되었을 때
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    console.log("handleDrop");
     e.preventDefault();
     e.stopPropagation();
     setIsFocused(false);
@@ -83,17 +84,21 @@ const Dropzone = ({
 
   // 드래그 상태에서 마우스 포인터가 범위 안에 있을 때
   const handleDragOver = useCallback((e: DragEvent<HTMLDivElement>) => {
+    console.log("handleDragOver");
     e.preventDefault();
     e.stopPropagation();
   }, []);
 
   const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    console.log("handleDragLeave");
     e.preventDefault();
     e.stopPropagation();
     setIsFocused(false);
   }, []);
 
   const handleDragEnter = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    console.log("handleDragEnter");
+
     e.preventDefault();
     e.stopPropagation();
     setIsFocused(true);
@@ -112,13 +117,15 @@ const Dropzone = ({
   return (
     <div
       ref={rootRef}
-      onDrag={handleDrop}
+      onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDragEnter={handleDragEnter}
       onClick={handleClick}
       data-testid="drop-zone"
-      className={`border border-dashed ${hadError ?? "text-red-600"} rounded-lg cursor-pointer`}
+      className={`border ${!isFocused && "border-dashed"} ${
+        hadError ?? "text-red-600"
+      } rounded-lg cursor-pointer`}
       style={{
         width,
         height,
@@ -131,6 +138,7 @@ const Dropzone = ({
         accept={acceptedFileTypes.join(",")}
         onChange={handleChange}
         multiple
+        className="hidden"
       />
       <div style={{ width, height }}>
         <CloudUploadIcon size={24} />
